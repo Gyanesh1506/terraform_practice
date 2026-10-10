@@ -6,7 +6,7 @@ pipeline {
         choice (
            name: "Environment",
 	   choices: ["QA", "Test", "Prod"],
-	   description: "Choose the correct environment
+	   description: "Choose the correct environment"
 	)
     }
     stages {
