@@ -23,7 +23,7 @@ pipeline {
         }
 	stage ("Terraform Plan") {
             steps {
-                bat 'terraform plan --var-file="%Environment%.tfvar"'
+                bat 'terraform plan --var-file="%Environment%.tfvars"'
             }
         }
 
