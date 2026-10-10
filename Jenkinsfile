@@ -31,6 +31,12 @@ pipeline {
                 bat 'terraform plan --var-file="%Environment%.tfvars"'
             }
         }
+	
+        stage ("Terraform apply") {
+            steps {
+                bat 'terraform apply --var-file="%Environment%.tfvars" --auto-approve'
+            }
+        }
 
     }
 }
