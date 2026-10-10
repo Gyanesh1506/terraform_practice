@@ -13,7 +13,7 @@ variable "ec2_type" {
   type        = string
 }
 
-variable "key-name" {
+variable "key_name" {
   description = "The name of key used for login into ec2"
   type        = string
 }
