@@ -38,9 +38,8 @@ pipeline {
 
                 params.Environment == "prod"
 	     }
-             
 	  }
-	  steps {
+          steps {
 
               input{ 
 	         message: 'Approve the changes',
