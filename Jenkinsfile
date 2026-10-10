@@ -16,6 +16,11 @@ pipeline {
                 checkout scm
             }
         }
+	stage('Copy Terraform Variables') {
+          steps {
+            bat 'copy /Y "E:\\Jenkins\\terraform_practice\\%ENVIRONMENT%.tfvars" "%WORKSPACE%\\%ENVIRONMENT%.tfvars"'
+         } 
+       }  
         stage ("Terraform initialization") {
             steps {
                 bat "terraform init"
