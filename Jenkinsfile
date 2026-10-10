@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage ("Git Checkout") {
             steps {
-	        cleanws()
+	        cleanWs()
                 checkout scm
             }
         }
