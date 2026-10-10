@@ -31,6 +31,24 @@ pipeline {
                 bat 'terraform plan --var-file="%Environment%.tfvars"'
             }
         }
+	stage ("Production approval") {
+
+          when {
+	     expression {
+
+                params.Environment == "prod"
+	     }
+             
+	  }
+	  steps {
+
+              input{ 
+	         message: 'Approve the changes'
+		 ok: 'approve',
+		 submitter: 'prod-approvers'
+	      }
+	    }
+	}
 	
         stage ("Terraform apply") {
             steps {
