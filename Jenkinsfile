@@ -45,7 +45,7 @@ pipeline {
         }
          stage ("Terraform destroy") {
             steps {
-                bat 'terraform destroy --auto-approve'
+                bat 'terraform destroy --var-file="%Environment%.tfvars" --auto-approve'
             }
         }
 
