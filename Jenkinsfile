@@ -5,6 +5,7 @@ pipeline {
     stages {
         stage ("Git Checkout") {
             steps {
+	        cleanws()
                 checkout scm
             }
         }
