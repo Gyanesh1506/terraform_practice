@@ -37,12 +37,6 @@ pipeline {
                 bat 'terraform apply --var-file="%Environment%.tfvars" --auto-approve'
             }
         }
-
-         stage ("Terraform apply") {
-            steps {
-                bat 'terraform apply --var-file="%Environment%.tfvars" --auto-approve'
-            }
-        }
          stage ("Terraform destroy") {
             steps {
                 bat 'terraform destroy --var-file="%Environment%.tfvars" --auto-approve'
