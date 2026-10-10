@@ -2,6 +2,13 @@ pipeline {
     agent {
         label "Windows-Node"
     }
+    parameters {
+        choice (
+           name: "Environment"
+	   choice: ["QA", "Test", "Prod"]
+	   description: "Choose the correct environment
+	)
+    }
     stages {
         stage ("Git Checkout") {
             steps {
@@ -16,7 +23,7 @@ pipeline {
         }
 	stage ("Terraform Plan") {
             steps {
-                bat "terraform plan"
+                bat 'terraform plan --var-file="%Environment%.tfvar"'
             }
         }
 
