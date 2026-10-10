@@ -43,7 +43,7 @@ pipeline {
 	  steps {
 
               input{ 
-	         message: 'Approve the changes'
+	         message: 'Approve the changes',
 		 ok: 'approve',
 		 submitter: 'prod-approvers'
 	      }
