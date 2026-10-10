@@ -18,9 +18,12 @@ pipeline {
         }
 	stage('Copy Terraform Variables') {
           steps {
-            bat 'copy /Y "E:\\Jenkins\\terraform_practice\\%ENVIRONMENT%.tfvars" "%WORKSPACE%\\%ENVIRONMENT%.tfvars"'
-         } 
-       }  
+            bat 'copy /Y "E:\\Jenkins\\terraform_practice\\%Environment%.tfvars" "%WORKSPACE%\\%Environment%.tfvars"'
+
+	 }
+
+
+        }  
         stage ("Terraform initialization") {
             steps {
                 bat "terraform init"
@@ -36,18 +39,18 @@ pipeline {
           when {
 	     expression {
 
-                params.Environment == "prod"
+                params.Environment == "Prod"
 	     }
 	  }
           steps {
 
-              input{ 
+              input ( 
 	         message: 'Approve the changes',
 		 ok: 'approve',
 		 submitter: 'prod-approvers'
-	      }
+	      )
 	    }
-	}
+	  }
 	
         stage ("Terraform apply") {
             steps {
