@@ -13,10 +13,5 @@ pipeline {
                 bat "terraform init"
             }
         }
-        stage ("Teraform plan") {
-            steps {
-                bat "terraform plan"
-            }
-        }
     }
 }
